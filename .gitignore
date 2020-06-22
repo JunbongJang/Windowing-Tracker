@@ -1,0 +1,6 @@
+assets/
+generated/
+WindowingProtrusionMaster/
+
+!WindowingProtrusionMaster/software/qciPlugin
+!WindowingProtrusionMaster/software/*.m
