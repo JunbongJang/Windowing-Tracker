@@ -1,6 +1,6 @@
-assets/
-generated/
-WindowingProtrusionMaster/
+*
 
+!.gitignore
+!*.m
 !WindowingProtrusionMaster/software/qciPlugin
 !WindowingProtrusionMaster/software/*.m
