@@ -2,5 +2,5 @@
 
 !.gitignore
 !*.m
-!WindowingProtrusionMaster/software/qciPlugin/*
-!WindowingProtrusionMaster/software/*.m
+!/WindowingProtrusionMaster/software/qciPlugin/*
+!/WindowingProtrusionMaster/software/*.m
