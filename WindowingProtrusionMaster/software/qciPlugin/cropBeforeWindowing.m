@@ -12,10 +12,12 @@ function [maskIn, x_min, y_min, x_max, y_max] = cropBeforeWindowing(target_pixel
     % between two tracked points
     if pixel_a_index>pixel_b_index
         betweenSmoothEdge = smoothedEdge(pixel_b_index:pixel_a_index,:);
+        notBetweenSmoothEdge = [smoothedEdge(1:pixel_b_index-1,:); smoothedEdge(pixel_a_index+1:end,:)];
         pixel_a_index = pixel_a_index - pixel_b_index + 1;
         pixel_b_index = 1;
     else
         betweenSmoothEdge = smoothedEdge(pixel_a_index:pixel_b_index,:);
+        notBetweenSmoothEdge = [smoothedEdge(1:pixel_a_index-1,:); smoothedEdge(pixel_b_index+1:end,:)];
         pixel_b_index = pixel_b_index - pixel_a_index + 1;
         pixel_a_index = 1;
     end
@@ -28,6 +30,15 @@ function [maskIn, x_min, y_min, x_max, y_max] = cropBeforeWindowing(target_pixel
 	y_min = floor(y_min);
 	x_max = ceil(x_max);
 	y_max = ceil(y_max);
+    
+    %% 6/23/2020 special case to remove thin area
+%     for edge_ind = 1:size(notBetweenSmoothEdge,1)
+%         temp_x = notBetweenSmoothEdge(edge_ind,1);
+%         temp_y = notBetweenSmoothEdge(edge_ind,2);
+%         maskIn(round(temp_y), round(temp_x)) = 0; % figure why swapped
+%     end
+%     figure(1);
+%     imshow(maskIn);
     
     %% cropping using chosen x,y coordinates
     rect = [x_min, y_min, x_max-x_min, y_max-y_min]; % [xmin ymin width height]
