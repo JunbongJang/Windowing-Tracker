@@ -45,3 +45,32 @@ function orientation = getMaskOrientation(maskIn)
    end
    
 end
+
+
+
+%% Orientation
+% I = imread('assets/120217_S01_CK666_50uM_03/images/img_scaled0001.tif');
+% clickImage(I)
+
+% mask_img = imread('assets/orientation_testset/center.png');
+% getMaskOrientation(mask_img) == 100
+% mask_img = imread('assets/orientation_testset/down1.png');
+% getMaskOrientation(mask_img) == 5
+% mask_img = imread('assets/orientation_testset/down2.png');
+% getMaskOrientation(mask_img) == 5
+% mask_img = imread('assets/orientation_testset/down3.png');
+% getMaskOrientation(mask_img) == 5
+% mask_img = imread('assets/orientation_testset/down4.png');
+% getMaskOrientation(mask_img) == 0
+% mask_img = imread('assets/orientation_testset/left1.png');
+% getMaskOrientation(mask_img) == 2
+% mask_img = imread('assets/orientation_testset/left2.png');
+% getMaskOrientation(mask_img) == 1
+% mask_img = imread('assets/orientation_testset/right3.png');
+% getMaskOrientation(mask_img) == 6
+% mask_img = imread('assets/orientation_testset/up1.png');
+% getMaskOrientation(mask_img) == 0
+% mask_img = imread('assets/orientation_testset/up2.png');
+% getMaskOrientation(mask_img) == 1
+% mask_img = imread('assets/orientation_testset/up5.png');
+% getMaskOrientation(mask_img) == 4

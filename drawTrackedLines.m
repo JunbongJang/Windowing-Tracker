@@ -1,4 +1,5 @@
-function drawTrackedLines(target_pixel_history, img_path)
+function I = drawTrackedLines(target_pixel_history, img_path, save_path)
+   mkdir(save_path)
    img_struct = dir(fullfile(img_path, '*.tif'));
    folder_path = img_struct.folder;
    img_names = {img_struct.name};
@@ -22,8 +23,10 @@ function drawTrackedLines(target_pixel_history, img_path)
     end
 
     I = uint8(traced_img) + I;
-    I = imresize(I, [451, 451]);
-    imwrite(I, ['generated/DMSO/',strrep(img_name,'.tif','.png')]);
+    if n < max_n
+        I = imresize(I, [451, 451]);
+    end
+    imwrite(I, [save_path,strrep(img_name,'.tif','.png')]);
 
    end
 
